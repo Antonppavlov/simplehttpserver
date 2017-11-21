@@ -12,13 +12,17 @@ import java.util.Map;
 
 public class SimpleHttpServer {
 
-   private  static int number =1;
+    private static int number = 1;
 
-    // http://localhost:8000/
     public static void main(String[] args) throws Exception {
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
-        server.createContext("/", new GetHandler());
-        server.setExecutor(null); // creates a default executor
+
+        // creates a default executor
+        server.createContext("/", new DefaultHttp());
+
+        server.createContext("/r", new GetHandler());
+
+        server.setExecutor(null);
         server.start();
         System.out.println("The server is running");
     }
@@ -30,27 +34,48 @@ public class SimpleHttpServer {
             Map<String, String> parms = SimpleHttpServer.queryToMap(query);
 
             System.out.println("\n------------------------------------------------------");
-            System.out.println("Запрос "+number+":\n" +query);
+            System.out.println("Запрос " + number + ":\n" + query);
             number++;
             System.out.println("\nПараметры:");
 
-            int numberParam=1;
+            int numberParam = 1;
+
             for (String key : parms.keySet()) {
-                System.out.println("+++++++  "+numberParam+"  +++++++");
-                System.out.println("key: "+key + "\nvalue: " + parms.get(key));
+                System.out.println("+++++++  " + numberParam + "  +++++++");
+                System.out.println("key: " + key + "\nvalue: " + parms.get(key));
                 System.out.println();
                 numberParam++;
             }
-            numberParam=1;
+            numberParam = 1;
 
             System.out.println("------------------------------------------------------");
 
             StringBuilder response = new StringBuilder();
             response.append("<html><body>");
+            response.append("<h1> Query:</h1>");
             response.append("<p>" + query + "</p>");
+            response.append("<h1> Params:</h1>");
             for (String key : parms.keySet()) {
-                response.append("<p>" + key + " " + parms.get(key) + "</p>");
+                response.append("<p> " + key +"</p>");
+                response.append("<p> " + parms.get(key) + "</p>");
+                response.append("<p> ------------------------------------" +"</p>");
             }
+            response.append("</body></html>");
+
+
+            SimpleHttpServer.writeResponse(httpExchange, response.toString());
+        }
+    }
+
+
+    static class DefaultHttp implements HttpHandler {
+        public void handle(HttpExchange httpExchange) throws IOException {
+
+            StringBuilder response = new StringBuilder();
+            response.append("<html><body>");
+            response.append("<p>" + "SimpleHttpServer" + "</p>");
+            response.append("<p>" + "Used to send parameters and display them in the console/screen" + "</p>");
+            response.append("<p>" + "To do this, you must use the path http://localhost:8000/r?" + "</p>");
             response.append("</body></html>");
 
 
