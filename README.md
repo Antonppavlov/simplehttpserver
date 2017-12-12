@@ -16,7 +16,7 @@
       * [Specific event](#specific_event)
       * [Subscribe for all events](#subscribe_for_all_events)
       * [More examples](#more_examples)
-      * [LogEnabled](#log_enabled)
+      * [Log enabled](#log_enabled)
     * [Error code](#error_code)
 * [License](#license)   
 
