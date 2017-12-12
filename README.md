@@ -83,7 +83,7 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
   ```
   
   
-  Example of handling deeplink:
+  * Example of handling deeplink:
   
   ```java
   @Override
