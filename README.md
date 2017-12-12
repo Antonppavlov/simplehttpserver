@@ -15,6 +15,7 @@
         * [Confirmed purchase](#confirmed_purchase)
       * [Specific event](#specific_event_app)
       * [Subscribe for all events](#subscribe_for_all_events)
+      * [LogEnabled](#log_enabled)
     * [Error code](#error_code)
 * [License](#license)   
 
@@ -179,6 +180,14 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
             }
         });
   ```
+
+#### <a id="log_enabled">LogEnabled
+
+  * To enable logs you can call any time: 
+  ``` java
+  AdmitadTracker.setLogEnabled(true);
+  ```
+  
 ### <a id="error_code">Error code
   * Error code can be one of the AdmitadTrackedCode: 
   
@@ -197,11 +206,7 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
   }
   ```
   
-  * To enable logs you can call any time: 
-  
-  ``` java
-  AdmitadTracker.setLogEnabled(true);
-  ```
+
 
 ## <a id="license"></a>License
 
