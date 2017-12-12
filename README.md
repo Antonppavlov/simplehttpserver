@@ -123,6 +123,8 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
       AdmitadTracker.getInstance().logUserLoyalty(*USER_ID*, *OPEN_APP_COUNT*);
 
   
+
+#### <a id="order">Order 
   * To log confirmed purchase or paid order you have to create AdmitadOrder object using builder. e.g.:
   
   ```java
@@ -133,7 +135,7 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
                 .setUserInfo(new AdmitadOrder.UserInfo().putExtra("Surname", "UserSurname").putExtra("Age", "18"))
                 .build();
   ```
-#### <a id="order">Order 
+  
   * Then you can log using `order`:
 ##### <a id="paid_order">Paid order 
 
