@@ -13,7 +13,7 @@
       * [Order](#order)
         * [Paid order](#paid_order)
         * [Confirmed purchase](#confirmed_purchase)
-      * [Specific event](#specific_event_app)
+      * [Specific event](#specific_event)
       * [Subscribe for all events](#subscribe_for_all_events)
       * [LogEnabled](#log_enabled)
     * [Error code](#error_code)
