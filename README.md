@@ -56,7 +56,7 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
 ```
 
 ### <a id="sdk-usage"></a>Usage
-
+#### <a id="initialized">Initialized
   * SDK is being initialized async, so you must call AdmitadTracker#initialize before using. We'd like to reccomend to initialize in the `Application#OnCreate` or in the launcher Activity in `Activity#onCreate`. You have to pass context, postback key (non-null key is mandatory, exception is thrown otherwise), callback (optional)
   
   ```java
@@ -100,24 +100,18 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
   See more examples in the [test project](app/)
   
   * When `AdmitadTracker#initialize` is called, it's possible to start tracking even if sdk is not initialized, if sdk has any uid value, logs will be stored and send ASAP. There're several events sdk is able to log:
-  
-      * #### Registration 
-      
-      ```java
-      AdmitadTracker.getInstance().logRegistration(*USER_ID*);
-      ```
-      
-      * #### Returned user
-      
-      ```java
-      AdmitadTracker.getInstance().logUserReturn(*USER_ID*, *DAY_COUNT*);
-      ```
+#### <a id="registration ">Registration 
 
-      * #### Loyalty
-      
-      ```java
+      AdmitadTracker.getInstance().logRegistration(*USER_ID*);
+
+#### <a id="returned_user">Returned user
+
+      AdmitadTracker.getInstance().logUserReturn(*USER_ID*, *DAY_COUNT*);
+
+#### <a id="loyalty">Loyalty
+
       AdmitadTracker.getInstance().logUserLoyalty(*USER_ID*, *OPEN_APP_COUNT*);
-      ```
+
   
   * To log confirmed purchase or paid order you have to create AdmitadOrder object using builder. e.g.:
   
@@ -129,21 +123,17 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
                 .setUserInfo(new AdmitadOrder.UserInfo().putExtra("Surname", "UserSurname").putExtra("Age", "18"))
                 .build();
   ```
-  
+#### <a id="order">Order 
   * Then you can log using `order`:
-  
-      * #### Paid order
-      
-      ```java
+##### <a id="paid_order">Paid order 
+
       AdmitadTracker.getInstance().logOrder(order);
-      ```
 
-      * #### Confirmed purchase
-      
-      ```java
+##### <a id="confirmed_purchase">Confirmed purchase 
+
       AdmitadTracker.getInstance().logPurchase(order);
-      ```
 
+#### <a id="specific_event">Specific event 
    * To subscribe for specific event, you can pass callbacks to any log* method, e.g.: 
    
   ```java
@@ -160,7 +150,7 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
             }
         });
    ```
-
+#### <a id="subscribe_for_all_events">Subscribe for all events
   * To subscribe for all events, you can call method `AdmitadTracker#addListener`. This method will be always called on sending.
 
   ```java
@@ -177,7 +167,7 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
             }
         });
   ```
-  
+#### <a id="error_code">Error code
   * Error code can be one of the AdmitadTrackedCode: 
   
   ```java
