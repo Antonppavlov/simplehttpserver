@@ -7,6 +7,15 @@
     * [Add the SDK to your project](#sdk-add)
     * [Usage](#sdk-usage)
       * [Initialized](#initialized)
+      * [Registration](#registration)
+      * [Returned user](#returned_user)
+      * [Loyalty](#loyalty)
+      * [Order](#order)
+        * [Paid order](#paid_order)
+        * [Confirmed purchase](#confirmed_purchase)
+      * [Specific event](#specific_event_app)
+      * [Subscribe for all events](#subscribe_for_all_events)
+      * [Error code](#error_code)
 * [License](#license)   
 
 ## <a id="example-app"></a>Example app
@@ -101,7 +110,7 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
   See more examples in the [test project](app/)
   
   * When `AdmitadTracker#initialize` is called, it's possible to start tracking even if sdk is not initialized, if sdk has any uid value, logs will be stored and send ASAP. There're several events sdk is able to log:
-#### <a id="registration ">Registration 
+#### <a id="registration">Registration 
 
       AdmitadTracker.getInstance().logRegistration(*USER_ID*);
 
