@@ -15,7 +15,7 @@
         * [Confirmed purchase](#confirmed_purchase)
       * [Specific event](#specific_event_app)
       * [Subscribe for all events](#subscribe_for_all_events)
-      * [Error code](#error_code)
+    * [Error code](#error_code)
 * [License](#license)   
 
 ## <a id="example-app"></a>Example app
@@ -179,7 +179,7 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
             }
         });
   ```
-#### <a id="error_code">Error code
+### <a id="error_code">Error code
   * Error code can be one of the AdmitadTrackedCode: 
   
   ```java
