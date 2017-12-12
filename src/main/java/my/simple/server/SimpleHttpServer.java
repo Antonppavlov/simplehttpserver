@@ -20,7 +20,8 @@ public class SimpleHttpServer {
         // creates a default executor
         server.createContext("/", new DefaultHttp());
 
-        server.createContext("/r", new GetHandler());
+        server.createContext("/default", new GetHandler("/default"));
+        server.createContext("/installationTracking", new GetHandler("/installationTracking"));
 
         server.setExecutor(null);
         server.start();
@@ -28,12 +29,18 @@ public class SimpleHttpServer {
     }
 
     static class GetHandler implements HttpHandler {
+
+       private final String path;
+        public GetHandler(String path) {
+            this.path=path;
+        }
+
         public void handle(HttpExchange httpExchange) throws IOException {
             String query = httpExchange.getRequestURI().getQuery();
 
             Map<String, String> parms = SimpleHttpServer.queryToMap(query);
 
-            System.out.println("\n------------------------------------------------------");
+            System.out.println("\n--------------------------"+path+"----------------------------");
             System.out.println("Запрос " + number + ":\n" + query);
             number++;
             System.out.println("\nПараметры:");
@@ -48,7 +55,6 @@ public class SimpleHttpServer {
             }
             numberParam = 1;
 
-            System.out.println("------------------------------------------------------");
 
             StringBuilder response = new StringBuilder();
             response.append("<html><body>");
@@ -73,9 +79,11 @@ public class SimpleHttpServer {
 
             StringBuilder response = new StringBuilder();
             response.append("<html><body>");
-            response.append("<p>" + "SimpleHttpServer" + "</p>");
-            response.append("<p>" + "Used to send parameters and display them in the console/screen" + "</p>");
-            response.append("<p>" + "To do this, you must use the path http://localhost:8000/r?" + "</p>");
+
+            response.append("<p><a href='score://?uid=12345'>" + "IOS score://?uid=12345" + "</a></p>");
+
+            response.append("<p><a href='admitad://?uid=12345'>" + "Android admitad://?uid=12345" + "</a></p>");
+            response.append("<p><a href='javatestapp://?uid=12345'>" + "Android javatestapp://?uid=12345" + "</a></p>");
             response.append("</body></html>");
 
 
@@ -111,3 +119,4 @@ public class SimpleHttpServer {
     }
 
 }
+
