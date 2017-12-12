@@ -6,6 +6,7 @@
 * [Basic integration](#basic-integration)
     * [Add the SDK to your project](#sdk-add)
     * [Usage](#sdk-usage)
+      * [Initialized](#initialized)
 * [License](#license)   
 
 ## <a id="example-app"></a>Example app
