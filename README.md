@@ -15,6 +15,7 @@
         * [Confirmed purchase](#confirmed_purchase)
       * [Specific event](#specific_event)
       * [Subscribe for all events](#subscribe_for_all_events)
+      * [More examples](#more_examples)
       * [LogEnabled](#log_enabled)
     * [Error code](#error_code)
 * [License](#license)   
@@ -103,7 +104,6 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
   }
   ```
   
-  See more examples in the [test project](app/)
   
   * When `AdmitadTracker#initialize` is called, it's possible to start tracking even if sdk is not initialized, if sdk has any uid value, logs will be stored and send ASAP. There're several events sdk is able to log:
 #### <a id="registration">Registration 
@@ -175,8 +175,11 @@ compile('ru.tachos.admitadstatisticsdk:admitadstatisticsdk:1.4.6') {
             }
         });
   ```
+#### <a id="more_examples">More examples
 
-#### <a id="log_enabled">LogEnabled
+  * See more examples in the [test project](app/)
+  
+#### <a id="log_enabled">Log enabled
 
   * To enable logs you can call any time: 
   ``` java
